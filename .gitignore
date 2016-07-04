@@ -1,6 +1,5 @@
 /.yardoc/
 /vendor/bundle
-/vendor/mount
 /test/tmp/
 /lib/bundler/man/
 /coverage/
