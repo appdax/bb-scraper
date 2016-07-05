@@ -7,14 +7,14 @@ namespace :build do
   end
 
   desc 'Build image for edge tag'
-  task(:stocks) { task('build:tag').invoke(:edge) }
+  task(:edge) { task('build:tag').invoke(:edge) }
 
   desc 'Build image for test tag'
   task(:test) { task('build:tag').invoke(:test) }
 
   task(:tag, [:tag]) do |_, args|
     tag   = args[:tag] || 'edge'
-    image = "appdax/cc-scraper:#{tag}"
+    image = "appdax/bb-scraper:#{tag}"
 
     FileUtils.ln_s "build/#{tag}/.dockerignore", '.dockerignore'
     system "docker build -t #{image} -f build/#{tag}/Dockerfile ."

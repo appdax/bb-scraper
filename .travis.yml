@@ -1,0 +1,22 @@
+language: ruby
+install:
+  - gem install rake
+
+sudo: false
+
+services:
+  - docker
+
+before_script:
+  - git checkout $TRAVIS_BRANCH
+  - git submodule update --remote
+
+script:
+  - rake build:test
+  - docker run -e CODECLIMATE_REPO_TOKEN=$CODECLIMATE_REPO_TOKEN -t appdax/bb-scraper:test
+  # - rake build:edge
+  - docker images -f dangling=false
+
+after_success:
+  # - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  # - docker push appdax/bb-scraper:edge
