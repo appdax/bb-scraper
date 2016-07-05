@@ -30,11 +30,13 @@ class MacdPartial < AppDax::MultiPartial
   #
   # @return [ Array<Hash> ] Unified data
   def unify_macd_signal_diff(data)
-    return [] unless data && data.include?(:data)
+    data = data[:data] if data
 
-    data[:data][:MACD].each.with_index do |item, index|
-      item[:signal] = data[:data][:MACD_SIGNAL][index][:value]
-      item[:diff]   = data[:data][:MACD_DIFF][index][:value]
+    return [] unless data && data[:MACD]
+
+    data[:MACD].each.with_index do |item, index|
+      item[:signal] = data[:MACD_SIGNAL][index][:value]
+      item[:diff]   = data[:MACD_DIFF][index][:value]
     end
   end
 end
