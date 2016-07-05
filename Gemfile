@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 raise 'Ruby 2.2 or newer required' unless RUBY_VERSION >= '2.2.0'
 
-gem 'appdax-scraper', path: '../scraper-gem'
+gem 'appdax-scraper', git: 'https://github.com/appdax/scraper-gem.git'
 
 gem 'whenever', '~> 0.9', require: false
 gem 'rake', '~> 11.1', require: false
