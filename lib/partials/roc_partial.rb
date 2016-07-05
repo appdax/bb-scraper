@@ -11,6 +11,8 @@ class RocPartial < AppDax::MultiPartial
   #
   # @return [ RocPartial ] self
   def initialize(data, url)
-    super url.include?('/roc') ? data[:price].reverse! : nil, IndicatorPartial
+    data = data && url.include?('/roc') ? data.fetch(:price, []).reverse! : nil
+
+    super data, IndicatorPartial
   end
 end

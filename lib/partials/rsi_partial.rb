@@ -11,6 +11,8 @@ class RsiPartial < AppDax::MultiPartial
   #
   # @return [ RsiPartial ] self
   def initialize(data, url)
-    super url.include?('/rsi') ? data[:price].reverse! : nil, IndicatorPartial
+    data = data && url.include?('/rsi') ? data.fetch(:price, []).reverse! : nil
+
+    super data, IndicatorPartial
   end
 end

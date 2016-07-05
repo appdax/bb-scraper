@@ -11,6 +11,8 @@ class VolumePartial < AppDax::MultiPartial
   #
   # @return [ VolumePartial ] self
   def initialize(data, url)
-    super url.include?('/vol') ? data[:price].reverse! : nil, IndicatorPartial
+    data = data && url.include?('/volume') ? (data[:price] || []).reverse! : nil
+
+    super data, IndicatorPartial
   end
 end

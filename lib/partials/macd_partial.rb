@@ -10,14 +10,31 @@ class MacdPartial < AppDax::MultiPartial
   # @param [ String ] url The URL from where the data comes from.
   #
   # @return [ RocPartial ] self
-  def initialize(data, _)
-    return super nil, IndicatorPartial unless data[:data]
+  def initialize(data, url)
+    return super nil, IndicatorPartial unless data && url.include?('/macd')
 
-    data = data[:data][:MACD].each.with_index do |item, index|
+    unified = unify_macd_signal_diff(data)
+
+    super unified.reverse!, IndicatorPartial
+  end
+
+  private
+
+  # Unify the values from MACD, its isgnal and difference values into one.
+  #
+  # @example
+  #   unify_macd_signal_diff MACD: { val: }, SIGNAL: { val: }, DIFF: { val: }
+  #   # => { value:, signal:, diff: }
+  #
+  # @param [ Array<Hash> ] data The serialized raw data.
+  #
+  # @return [ Array<Hash> ] Unified data
+  def unify_macd_signal_diff(data)
+    return [] unless data && data.include?(:data)
+
+    data[:data][:MACD].each.with_index do |item, index|
       item[:signal] = data[:data][:MACD_SIGNAL][index][:value]
       item[:diff]   = data[:data][:MACD_DIFF][index][:value]
     end
-
-    super data.reverse!, IndicatorPartial
   end
 end

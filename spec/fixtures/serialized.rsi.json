@@ -1,0 +1,1 @@
+{"id":"symbol","source":"bloomberg","created_at":1467676800,"version":1,"basic":{"symbol":"AMZN","type":1},"feeds":[{"items":[{"value":66.02,"age":28},{"value":68.2,"age":29}],"meta":{"age":0,"source":"bloomberg","feed":"rsi","multi":true}}]}

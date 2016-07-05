@@ -15,8 +15,9 @@ class Scraper < AppDax::Scraper
   stock_class Stock
   serializer_class Serializer
 
+  load_config(role: 'bb-scraper')
+
   base_url 'http://www.bloomberg.com/markets/api/security/time-series'
-  fields :macd, :rsi, :roc, :volume
   content_type :json
 
   url_for_field do |kpi, sym|

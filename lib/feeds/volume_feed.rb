@@ -4,5 +4,5 @@ require 'app_dax/multi_feed'
 class VolumeFeed < AppDax::MultiFeed
   age_from :volume
 
-  kpis_from volume: %i(value)
+  kpis_from volume: %i(value age)
 end

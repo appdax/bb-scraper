@@ -15,7 +15,7 @@ namespace :scraper do
   task :run, [:parallel, :concurrent, :fields] do |_, args|
     args.with_defaults parallel: 1,
                        concurrent: 200,
-                       fields: Scraper::fields.join(' ')
+                       fields: Scraper.fields.join(' ')
 
     parallel   = args[:parallel].to_i
     concurrent = args[:concurrent].to_i

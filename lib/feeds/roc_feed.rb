@@ -4,5 +4,5 @@ require 'app_dax/multi_feed'
 class RocFeed < AppDax::MultiFeed
   age_from :roc
 
-  kpis_from roc: %i(value)
+  kpis_from roc: %i(value age)
 end

@@ -36,6 +36,9 @@ require 'partials/macd_partial'
 #   stock.volume.age_in_days
 #   #=> 0
 class Stock < AppDax::Stock
+  # Use symbol instead of ISIN for identification
+  id :symbol
+
   # Represents a series of daily RSI (Relative Strength Index) values.
   #
   # @return [ RsiPartial ] Enumerable values.
@@ -72,9 +75,5 @@ class Stock < AppDax::Stock
     data[:id].split(':').first
   rescue
     nil
-  end
-
-  def isin
-    :isin
   end
 end

@@ -32,7 +32,9 @@ class IndicatorPartial < AppDax::Partial
   # The date of the indicator value.
   #
   # @return [ Int ] Relative number of days between today and the date.
-  def age_in_days
+  def age
     diff_in_days data[:date]
+  rescue
+    nil
   end
 end
