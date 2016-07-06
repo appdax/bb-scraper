@@ -1,8 +1,9 @@
 GIT
   remote: https://github.com/appdax/scraper-gem.git
-  revision: 4efe52a8a4972662eb4bd26e4b07b6737de11868
+  revision: 5c6f6ab096923b91051469e3aaabe61675c4861b
   specs:
     appdax-scraper (0.1.0)
+      json
       typhoeus (~> 1.0)
 
 GEM
@@ -20,7 +21,7 @@ GEM
     ethon (0.9.0)
       ffi (>= 1.3.0)
     fakefs (0.9.0)
-    ffi (1.9.10)
+    ffi (1.9.11)
     hashdiff (0.3.0)
     json (2.0.1)
     method_source (0.8.2)
