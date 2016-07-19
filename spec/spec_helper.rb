@@ -2,9 +2,11 @@ require 'timecop'
 require 'simplecov'
 require 'webmock/rspec'
 require 'codeclimate-test-reporter'
+require 'hidemyass'
 require 'pry'
 
 WebMock.disable_net_connect!(allow: 'codeclimate.com')
+WebMock.stub_request(:get, /(incloak|hidester).com/).to_return body: '[]'
 
 CodeClimate::TestReporter.start
 

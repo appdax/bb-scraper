@@ -1,9 +1,10 @@
 GIT
   remote: https://github.com/appdax/scraper-gem.git
-  revision: 5c6f6ab096923b91051469e3aaabe61675c4861b
+  revision: a5397fe4b7e7ef57b7c2d1e76abe9b3880698d61
   specs:
     appdax-scraper (0.1.0)
-      json
+      hidemyass2 (~> 1.2)
+      json (~> 2.0)
       typhoeus (~> 1.0)
 
 GEM
@@ -21,11 +22,13 @@ GEM
     ethon (0.9.0)
       ffi (>= 1.3.0)
     fakefs (0.9.0)
-    ffi (1.9.12)
+    ffi (1.9.14)
     hashdiff (0.3.0)
+    hidemyass2 (1.2.0)
+      json
     json (2.0.1)
     method_source (0.8.2)
-    pry (0.10.3)
+    pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
@@ -36,7 +39,7 @@ GEM
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
       rspec-mocks (~> 3.5.0)
-    rspec-core (3.5.0)
+    rspec-core (3.5.1)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)

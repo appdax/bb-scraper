@@ -18,6 +18,7 @@ class Scraper < AppDax::Scraper
   load_config(role: 'bb-scraper')
 
   base_url 'http://www.bloomberg.com/markets/api/security/time-series'
+  use_proxies { |p| p.anonymity != 'no' && p.socks? }
   content_type :json
 
   url_for_field do |kpi, sym|

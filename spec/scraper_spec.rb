@@ -38,7 +38,10 @@ RSpec.describe Scraper do
   describe '#run' do
     include FakeFS::SpecHelpers
 
-    before { described_class.fields(:rsi, :roc, :macd, :volume) }
+    before do
+      described_class.fields(:rsi, :roc, :macd, :volume)
+      described_class.parallel_requests 1
+    end
 
     context 'when scraping AMZN:US' do
       let(:content) { IO.read('spec/fixtures/amzn.rsi.json') }

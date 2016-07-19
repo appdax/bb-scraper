@@ -33,7 +33,7 @@ private
 # @param [ Int ] concurrent Max number of concurrent requests.
 # @param [ Array<Symbol> ] fields Subset of Scraper::FIELDS.
 def run_scraper(parallel, concurrent, fields)
-  stocks = IO.read('tmp/stocks.txt').split
+  stocks = IO.read('tmp/stocks.txt').split.take(200)
 
   puts "Scraping #{stocks.count} stocks from bloomberg..."
 
