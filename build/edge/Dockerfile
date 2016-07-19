@@ -2,7 +2,7 @@ FROM alpine:3.4
 MAINTAINER Sebastian Katzer "katzer.sebastian@googlemail.com"
 
 ENV APP_HOME /usr/app/
-ENV BUILD_PACKAGES ruby-dev libffi-dev gcc make libc-dev tzdata
+ENV BUILD_PACKAGES ruby-dev libffi-dev gcc make libc-dev tzdata zlib-dev
 ENV RUBY_PACKAGES ruby git tar curl ruby-io-console
 
 RUN mkdir $APP_HOME

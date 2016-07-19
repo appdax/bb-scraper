@@ -13,6 +13,7 @@ build
 vendor
 tmp
 log
+build
 lib/tasks/build.rake
 *.md
 !LICENSE.md
